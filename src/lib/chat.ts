@@ -16,7 +16,7 @@ export interface WaRedirect {
 }
 
 export const CHAT_CONFIG = {
-    socketUrl: 'http://localhost:3001',
+    socketUrl: import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001',
     headerTitle: 'Chat with Hayu',
     headerSubtitle: 'Usually replies instantly via WhatsApp',
     inputPlaceholder: 'Type your message...',
