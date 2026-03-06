@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --cd-bg: #0c0c14;
+        --cd-fg: #f4f4f4;
+        --cd-yellow: #ffcc00;
+        --cd-green: #4ade80;
+        --cd-purple: #a855f7;
+        --cd-pink: #f472b6;
+        --cd-blue: #60a5fa;
+        --cd-whatsapp: #25D366;
+        --cd-border: #000000;
+        --cd-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--cd-bg);
+        color: var(--cd-fg);
+        font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes animStar {
+        from {
+            transform: translateY(0px);
+        }
+
+        to {
+            transform: translateY(-2000px);
+        }
+    }
+
+    .star-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+    }
+
+    .star-layer::after {
+        content: " ";
+        position: absolute;
+        top: 2000px;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        box-shadow: inherit;
+    }
+
+    .mask-gradient-to-b {
+        mask-image: linear-gradient(to bottom, transparent, black);
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+    }
+}
+
+@layer components {
+    .neo-box {
+        @apply bg-[#1a1a24] border-2 border-black transition-all;
+        box-shadow: var(--cd-shadow);
+    }
+
+    .neo-box-yellow {
+        @apply bg-[var(--cd-yellow)] border-2 border-black text-black font-bold;
+        box-shadow: var(--cd-shadow);
+    }
+
+    .neo-btn {
+        @apply px-6 py-3 bg-[var(--cd-yellow)] border-2 border-black text-black font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 hover:bg-[#ffe066] active:translate-x-[4px] active:translate-y-[4px];
+        box-shadow: var(--cd-shadow);
+    }
+
+    .neo-btn:active {
+        box-shadow: none;
+    }
+
+    .neo-btn-secondary {
+        @apply px-6 py-3 bg-white border-2 border-black text-black font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 hover:bg-gray-100 active:translate-x-[4px] active:translate-y-[4px];
+        box-shadow: var(--cd-shadow);
+    }
+
+    .neo-btn-secondary:active {
+        box-shadow: none;
+    }
+
+    .text-outline {
+        text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+    }
+}
+
+@layer utilities {
+    .bg-grid {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+}
